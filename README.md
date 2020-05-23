@@ -3,8 +3,7 @@ A Simple Network Scanner that checks for open ports. It also convers domain name
 
 ## Examples 
 
-1. python3 network_scanner.py google.com  
-    **converts the domain name to ip address**
+1. python3 network_scanner.py google.com  **converts the domain name to ip address**
 
 2. python3 network_scanner.py 192.168.1.8 
     **converts the ip address to domain name**
