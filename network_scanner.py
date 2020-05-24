@@ -43,9 +43,11 @@ Examples \"python3 network_scanner -p 80 google.com\", \
 			print("domain name:{}\nip address:{} ".format(domain_name, socket.gethostbyname(domain_name)))
 			
 		except socket.gaierror:
-			print("Given wrong domain or ip address")
+			print("Given wrong domain name")
 			sys.exit()
-			
+		except socket.herror:
+			print("Cannot find the ip of the given domain name")
+			sys.exit()
 	
 	def ip_to_domain(self, ip_addr):
 		try:
@@ -53,6 +55,9 @@ Examples \"python3 network_scanner -p 80 google.com\", \
 			print("ip address:{}\ndomain name:{}".format(ip_addr, hostname))
 		except socket.gaierror:
 			print("Given wrong domain or ip address")
+			sys.exit()
+		except socket.herror:
+			print("Cannot find the domain name of the given ip address")
 			sys.exit()
 			
 		
@@ -62,8 +67,8 @@ Examples \"python3 network_scanner -p 80 google.com\", \
 			result = self.create_socket(domain_name, port)
 			if result == 0:
 				print("Port {} is open".format(port))
-			else:
-				print("Port {} is closed".format(port))			
+			#else:
+				#print("Port {} is closed".format(port))			
 					
 		except KeyboardInterrupt:
 			print("\nExiting Program")
